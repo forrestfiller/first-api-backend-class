@@ -28,5 +28,24 @@ router.get('/:resource', function(req, res, next) {
   }
 
 })
+// this is an endpoint to support additional requests - this one is for 'id'
+router.get('/:resource/:id', function(req, res, next) {
+  var resource = req.params.resource
+  var id = req.params.id
+
+  if (resource == 'politician'){
+  	var politician = politicians[id]
+
+
+
+      res.json({
+  	 	  confirmation: 'success',
+  	      politician: politician
+      })
+
+     return
+  }
+
+})
 
 module.exports = router
